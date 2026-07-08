@@ -1515,3 +1515,118 @@
     </script>
 </body>
 </html>
+
+    <script>
+        // ===== FUNÇÃO PARA ALTERNAR MODO ESCURO =====
+        function toggleDarkMode() {
+            const body = document.body;
+            const label = document.getElementById('darkLabel');
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                label.textContent = 'Modo Claro';
+                document.querySelector('.dark-toggle i').className = 'fas fa-sun';
+            } else {
+                label.textContent = 'Modo Escuro';
+                document.querySelector('.dark-toggle i').className = 'fas fa-moon';
+            }
+        }
+
+        // ===== FUNÇÃO PARA TABS =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = {
+                tab1: document.getElementById('tab1'),
+                tab2: document.getElementById('tab2'),
+                tab3: document.getElementById('tab3'),
+                tab4: document.getElementById('tab4')
+            };
+
+            tabs.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+
+                    tabs.forEach(b => b.classList.remove('active'));
+                    Object.values(contents).forEach(c => c.classList.remove('active'));
+
+                    this.classList.add('active');
+                    if (contents[tabId]) {
+                        contents[tabId].classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // ===== FUNÇÃO PARA VÍDEOS COM YOUTUBE REAL =====
+        function toggleVideo(videoId) {
+            const video = document.getElementById(videoId);
+            if (video) {
+                video.classList.toggle('show');
+
+                const allVideos = document.querySelectorAll('.video-container');
+                allVideos.forEach(v => {
+                    if (v.id !== videoId) {
+                        v.classList.remove('show');
+                    }
+                });
+            }
+        }
+
+        // ===== FUNÇÃO PARA ABRIR VÍDEOS NO YOUTUBE =====
+        function openYouTube(videoUrl) {
+            window.open(videoUrl, '_blank');
+        }
+
+        // ===== FUNÇÃO PARA REPORTAGENS COM LINKS =====
+        function showNews(newsId) {
+            const allNews = document.querySelectorAll('.news-full');
+            allNews.forEach(n => n.classList.remove('show'));
+
+            const selected = document.getElementById(newsId);
+            if (selected) {
+                selected.classList.toggle('show');
+
+                if (selected.classList.contains('show')) {
+                    setTimeout(() => {
+                        selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 200);
+                }
+            }
+        }
+
+        // ===== FUNÇÃO PARA ABRIR REPORTAGEM EXTERNA =====
+        function openReport(url) {
+            window.open(url, '_blank');
+        }
+
+        // ===== FUNÇÃO PARA QUIZ =====
+        function checkQuiz(button, isCorrect) {
+            const feedback = document.getElementById('quizFeedback');
+            const allButtons = button.parentElement.querySelectorAll('button');
+
+            allButtons.forEach(b => b.disabled = true);
+
+            allButtons.forEach(b => {
+                if (b.textContent.includes('Estrela')) {
+                    b.classList.add('correct');
+                }
+            });
+
+            if (isCorrect) {
+                button.classList.add('correct');
+                feedback.className = 'quiz-feedback show success';
+                feedback.textContent = '✅ Correto! A topologia em estrela é a mais recomendada para fábricas modernas por sua facilidade de diagnóstico e redundância.';
+            } else {
+                button.classList.add('wrong');
+                feedback.className = 'quiz-feedback show error';
+                feedback.textContent = '❌ Não foi dessa vez! A topologia em estrela é a mais recomendada para fábricas modernas. Tente novamente!';
+            }
+        }
+
+        // ===== FUNÇÃO PARA BAIXAR ARQUIVOS =====
+        function downloadFile(filename) {
+            alert('📄 Baixando arquivo: ' + filename);
+        }
+    </script>
+</body>
+</html>
