@@ -1,1 +1,1517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link Industrial · Guia Visual de Redes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0ecf9;
+            color: #1A1A2E;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background 0.4s, color 0.4s;
+        }
+
+        body.dark-mode {
+            background: #0f0e1a;
+            color: #e8e4f0;
+        }
+
+        body.dark-mode .container {
+            background: #1a1a2e;
+            box-shadow: 0 20px 40px -10px rgba(108, 43, 217, 0.3);
+        }
+
+        body.dark-mode .card {
+            background: #222244;
+            border-color: #3d3d6b;
+        }
+
+        body.dark-mode .card-header i {
+            background: #1a1a2e;
+            border-color: #6C2BD9;
+            color: #F7C948;
+        }
+
+        body.dark-mode .extra-detail {
+            background: #1a1a2e;
+            color: #d4c8f0;
+            border-left-color: #FF6B35;
+        }
+
+        body.dark-mode .media-box {
+            background: #222244;
+            border-color: #3d3d6b;
+        }
+
+        body.dark-mode .media-box .text i {
+            background: #1a1a2e;
+            color: #F7C948;
+        }
+
+        body.dark-mode .tools-section {
+            background: #222244;
+        }
+
+        body.dark-mode .tools-section .tool-item {
+            background: #1a1a2e;
+        }
+
+        body.dark-mode .tab-btn {
+            color: #a29bfe;
+        }
+
+        body.dark-mode .tab-btn.active {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+            box-shadow: 0 4px 20px rgba(108, 43, 217, 0.4);
+        }
+
+        body.dark-mode .tab-btn:hover {
+            background: #2d2d55;
+            color: #F7C948;
+        }
+
+        body.dark-mode .topo-card {
+            background: #222244;
+            border-color: #3d3d6b;
+        }
+
+        body.dark-mode .topo-card h4 {
+            color: #e8e4f0;
+        }
+
+        body.dark-mode .topo-card .desc {
+            color: #d4c8f0;
+        }
+
+        body.dark-mode .news-item {
+            background: #222244;
+            border-color: #3d3d6b;
+        }
+
+        body.dark-mode .news-item i {
+            background: #1a1a2e;
+            border-color: #6C2BD9;
+            color: #F7C948;
+        }
+
+        body.dark-mode .news-item h4 {
+            color: #e8e4f0;
+        }
+
+        body.dark-mode .news-item p {
+            color: #d4c8f0;
+        }
+
+        body.dark-mode .badge {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+        }
+
+        body.dark-mode .badge-topo {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+        }
+
+        body.dark-mode .footer-note {
+            color: #a29bfe;
+        }
+
+        body.dark-mode .header {
+            border-bottom-color: #3d3d6b;
+        }
+
+        body.dark-mode .tabs {
+            border-bottom-color: #3d3d6b;
+        }
+
+        body.dark-mode .dark-toggle {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+        }
+
+        body.dark-mode .dark-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(108, 43, 217, 0.4);
+        }
+
+        body.dark-mode .btn-video {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+        }
+
+        body.dark-mode .btn-video:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 24px rgba(108, 43, 217, 0.4);
+        }
+
+        body.dark-mode .glossary-term {
+            border-bottom-color: #FF6B35;
+            color: #F7C948;
+        }
+
+        body.dark-mode .glossary-tooltip {
+            background: #6C2BD9;
+            color: white;
+        }
+
+        body.dark-mode .quiz-container {
+            background: #222244;
+            border-color: #3d3d6b;
+        }
+
+        body.dark-mode .quiz-container h3 {
+            color: #e8e4f0;
+        }
+
+        body.dark-mode .quiz-question h4 {
+            color: #e8e4f0;
+        }
+
+        body.dark-mode .quiz-options button {
+            background: #1a1a2e;
+            border-color: #3d3d6b;
+            color: #e8e4f0;
+        }
+
+        body.dark-mode .quiz-options button:hover:not(:disabled) {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            border-color: #6C2BD9;
+            color: white;
+        }
+
+        body.dark-mode .quiz-options button.correct {
+            background: #00C9A7;
+            border-color: #00C9A7;
+            color: #1A1A2E;
+        }
+
+        body.dark-mode .quiz-options button.wrong {
+            background: #FF4757;
+            border-color: #FF4757;
+            color: white;
+        }
+
+        body.dark-mode .quiz-feedback.success {
+            background: #1a3a2a;
+            color: #00C9A7;
+        }
+
+        body.dark-mode .quiz-feedback.error {
+            background: #3a1a1a;
+            color: #FF6B6B;
+        }
+
+        body.dark-mode .news-full {
+            background: #222244;
+            border-left-color: #FF6B35;
+        }
+
+        body.dark-mode .news-full h4 {
+            color: #e8e4f0;
+        }
+
+        body.dark-mode .news-full p {
+            color: #d4c8f0;
+        }
+
+        body.dark-mode hr {
+            border-top-color: #3d3d6b;
+        }
+
+        .container {
+            max-width: 1280px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 24px 48px -16px rgba(108, 43, 217, 0.15);
+            padding: 2rem 2rem 2.5rem;
+            transition: all 0.4s;
+        }
+
+        .logo-svg {
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
+        }
+
+        .logo-svg svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #f0ecf9;
+            padding-bottom: 1.25rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #6C2BD9 30%, #FF6B35 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-text span {
+            font-weight: 400;
+            color: #a29bfe;
+            font-size: 0.95rem;
+            margin-left: 6px;
+            letter-spacing: 0.2px;
+            -webkit-text-fill-color: #a29bfe;
+        }
+
+        body.dark-mode .logo-text span {
+            -webkit-text-fill-color: #a29bfe;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .dark-toggle {
+            background: #f0ecf9;
+            border: none;
+            border-radius: 60px;
+            padding: 0.5rem 1.4rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            font-family: 'Inter', sans-serif;
+            color: #1A1A2E;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .dark-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(108, 43, 217, 0.2);
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 12px rgba(108, 43, 217, 0.2);
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 1.8rem 0 2rem;
+            border-bottom: 3px solid #f0ecf9;
+            padding-bottom: 0.2rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 0.7rem 1.6rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #6C2BD9;
+            cursor: pointer;
+            border-radius: 60px 60px 0 0;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-btn i {
+            font-size: 1.1rem;
+        }
+
+        .tab-btn:hover {
+            background: #f0ecf9;
+            color: #FF6B35;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+            box-shadow: 0 6px 20px rgba(108, 43, 217, 0.25);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeUp 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(14px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.8rem;
+            margin: 1.8rem 0 1rem;
+        }
+
+        .card {
+            background: #f8f6ff;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+            border: 2px solid #f0ecf9;
+            transition: all 0.3s;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6C2BD9, #FF6B35, #F7C948);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #6C2BD9;
+            box-shadow: 0 20px 40px -12px rgba(108, 43, 217, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-header i {
+            font-size: 2.2rem;
+            color: #6C2BD9;
+            background: white;
+            padding: 14px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+            border: 2px solid #f0ecf9;
+            transition: 0.3s;
+        }
+
+        .card:hover .card-header i {
+            transform: scale(1.06) rotate(-3deg);
+            border-color: #FF6B35;
+            color: #FF6B35;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1A1A2E;
+        }
+
+        .card p {
+            color: #4a4a6a;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+
+        .extra-detail {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            background: #f0ecf9;
+            padding: 0.8rem 1.2rem;
+            border-radius: 18px;
+            color: #1A1A2E;
+            border-left: 5px solid #FF6B35;
+            font-weight: 500;
+        }
+
+        .extra-detail i {
+            margin-right: 8px;
+            color: #FF6B35;
+        }
+
+        .media-box {
+            background: #f8f6ff;
+            border-radius: 28px;
+            padding: 1.5rem 2rem;
+            margin: 2.2rem 0 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid #f0ecf9;
+            transition: 0.3s;
+        }
+
+        .media-box:hover {
+            border-color: #6C2BD9;
+        }
+
+        .media-box .text {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .media-box .text i {
+            font-size: 2.4rem;
+            color: #FF6B35;
+            background: white;
+            padding: 14px;
+            border-radius: 60px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .media-box .text span {
+            font-weight: 600;
+            color: #1A1A2E;
+            font-size: 1rem;
+        }
+
+        .btn-video {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+            border: none;
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 16px rgba(108, 43, 217, 0.2);
+        }
+
+        .btn-video:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 24px rgba(108, 43, 217, 0.35);
+        }
+
+        .btn-video:active {
+            transform: scale(0.96);
+        }
+
+        .btn-video i {
+            font-size: 0.9rem;
+        }
+
+        .video-container {
+            width: 100%;
+            margin: 1rem 0;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(108, 43, 217, 0.1);
+            display: none;
+            border: 3px solid #6C2BD9;
+        }
+
+        .video-container.show {
+            display: block;
+            animation: fadeUp 0.3s ease;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .topo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 1.8rem 0;
+        }
+
+        .topo-card {
+            flex: 1 1 280px;
+            background: #f8f6ff;
+            border-radius: 30px;
+            padding: 2rem 1.8rem;
+            border: 2px solid #f0ecf9;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6C2BD9, #FF6B35);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .topo-card:hover::before {
+            opacity: 1;
+        }
+
+        .topo-card:hover {
+            transform: translateY(-6px);
+            border-color: #6C2BD9;
+            box-shadow: 0 16px 32px -8px rgba(108, 43, 217, 0.1);
+        }
+
+        .topo-card h4 {
+            font-size: 1.5rem;
+            color: #1A1A2E;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 0.5rem;
+        }
+
+        .topo-card .desc {
+            color: #4a4a6a;
+            line-height: 1.6;
+            margin: 0.8rem 0 1.2rem;
+        }
+
+        .vantagens,
+        .desvantagens {
+            margin-top: 0.8rem;
+            padding-left: 1.2rem;
+        }
+
+        .vantagens li,
+        .desvantagens li {
+            list-style: none;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .vantagens li i {
+            color: #00C9A7;
+            width: 18px;
+            font-size: 0.85rem;
+        }
+
+        .desvantagens li i {
+            color: #FF4757;
+            width: 18px;
+            font-size: 0.85rem;
+        }
+
+        .badge-topo {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            padding: 0.25rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: white;
+            display: inline-block;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.8rem;
+            margin: 1.8rem 0;
+        }
+
+        .news-item {
+            background: #f8f6ff;
+            border-radius: 24px;
+            padding: 1.5rem 1.2rem;
+            border: 2px solid #f0ecf9;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .news-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(108, 43, 217, 0.08);
+            border-color: #FF6B35;
+        }
+
+        .news-item i {
+            font-size: 2rem;
+            color: #6C2BD9;
+            background: white;
+            padding: 12px;
+            border-radius: 18px;
+            margin-bottom: 12px;
+            display: inline-block;
+            border: 2px solid #f0ecf9;
+        }
+
+        .news-item h4 {
+            color: #1A1A2E;
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+        }
+
+        .news-item p {
+            color: #4a4a6a;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .news-item .tag {
+            display: inline-block;
+            margin-top: 12px;
+            background: #f0ecf9;
+            padding: 0.2rem 1rem;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #6C2BD9;
+        }
+
+        .news-full {
+            margin-top: 1.5rem;
+            padding: 1.8rem;
+            background: #f8f6ff;
+            border-radius: 24px;
+            border-left: 6px solid #FF6B35;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .news-full.show {
+            display: block;
+            animation: fadeUp 0.3s ease;
+        }
+
+        .news-full h4 {
+            color: #1A1A2E;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .news-full p {
+            color: #4a4a6a;
+            line-height: 1.7;
+        }
+
+        .news-full .btn-video {
+            margin-top: 12px;
+        }
+
+        .tools-section {
+            background: #f0ecf9;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.2rem;
+        }
+
+        .tools-section .tool-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: white;
+            padding: 0.5rem 1.4rem 0.5rem 0.8rem;
+            border-radius: 60px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            transition: 0.3s;
+        }
+
+        .tools-section .tool-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 16px rgba(108, 43, 217, 0.08);
+        }
+
+        .tools-section .tool-item i {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+            padding: 12px;
+            border-radius: 60px;
+            font-size: 1rem;
+            width: 44px;
+            text-align: center;
+        }
+
+        .tools-section .tool-item span {
+            font-weight: 500;
+            color: #1A1A2E;
+            font-size: 0.9rem;
+        }
+
+        .tools-section .tool-item .download {
+            color: #6C2BD9;
+            font-size: 0.75rem;
+            margin-left: 6px;
+            text-decoration: none;
+            padding: 4px 14px;
+            background: #f0ecf9;
+            border-radius: 60px;
+            transition: 0.3s;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .tools-section .tool-item .download:hover {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+        }
+
+        .glossary-wrapper {
+            background: #f8f6ff;
+            border-radius: 20px;
+            padding: 0.8rem 1.8rem;
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 1rem;
+            border: 2px solid #f0ecf9;
+        }
+
+        .glossary-term {
+            border-bottom: 3px solid #FF6B35;
+            cursor: help;
+            position: relative;
+            font-weight: 700;
+            color: #6C2BD9;
+            padding-bottom: 2px;
+        }
+
+        body.dark-mode .glossary-term {
+            color: #F7C948;
+        }
+
+        .glossary-tooltip {
+            display: none;
+            position: absolute;
+            background: #6C2BD9;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 14px;
+            font-size: 0.8rem;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            z-index: 20;
+            font-weight: 400;
+            box-shadow: 0 6px 16px rgba(108, 43, 217, 0.3);
+        }
+
+        .glossary-term:hover .glossary-tooltip {
+            display: block;
+        }
+
+        .quiz-container {
+            background: #f8f6ff;
+            border-radius: 28px;
+            padding: 2rem;
+            margin: 1.8rem 0;
+            border: 2px solid #f0ecf9;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .quiz-container h3 {
+            color: #1A1A2E;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quiz-container h3 i {
+            color: #F7C948;
+        }
+
+        .quiz-question {
+            margin-bottom: 1.2rem;
+        }
+
+        .quiz-question h4 {
+            margin-bottom: 10px;
+            color: #1A1A2E;
+            font-size: 1rem;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .quiz-options button {
+            background: white;
+            border: 2px solid #f0ecf9;
+            padding: 0.6rem 1.6rem;
+            border-radius: 60px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: 0.3s;
+            color: #1A1A2E;
+            font-size: 0.9rem;
+        }
+
+        .quiz-options button:hover:not(:disabled) {
+            background: linear-gradient(135deg, #6C2BD9, #FF6B35);
+            color: white;
+            border-color: #6C2BD9;
+            transform: scale(1.02);
+        }
+
+        .quiz-options button.correct {
+            background: #00C9A7;
+            color: #1A1A2E;
+            border-color: #00C9A7;
+        }
+
+        .quiz-options button.wrong {
+            background: #FF4757;
+            color: white;
+            border-color: #FF4757;
+        }
+
+        .quiz-options button:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .quiz-feedback {
+            margin-top: 12px;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeUp 0.3s ease;
+        }
+
+        .quiz-feedback.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .quiz-feedback.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        hr {
+            border: none;
+            border-top: 3px solid #f0ecf9;
+            margin: 2rem 0 1rem;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #a29bfe;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0.5rem;
+        }
+
+        .footer-note i {
+            color: #FF6B35;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem;
+            }
+            .container {
+                padding: 1.2rem;
+                border-radius: 24px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            .logo-text span {
+                font-size: 0.8rem;
+            }
+            .media-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+                padding: 1.2rem;
+            }
+            .tools-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .video-container iframe {
+                height: 220px;
+            }
+            .tab-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .topo-grid {
+                flex-direction: column;
+            }
+            .logo-svg {
+                width: 40px;
+                height: 40px;
+            }
+            .glossary-wrapper {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-area">
+                <div class="logo-svg">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#6C2BD9" />
+                                <stop offset="50%" stop-color="#FF6B35" />
+                                <stop offset="100%" stop-color="#F7C948" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="8" y="8" width="84" height="84" rx="20" fill="white" stroke="url(#logoGrad)" stroke-width="4" />
+                        <circle cx="50" cy="38" r="10" fill="url(#logoGrad)" />
+                        <circle cx="32" cy="62" r="8" fill="url(#logoGrad)" />
+                        <circle cx="68" cy="62" r="8" fill="url(#logoGrad)" />
+                        <line x1="50" y1="38" x2="32" y2="62" stroke="#FF6B35" stroke-width="3" stroke-linecap="round" />
+                        <line x1="50" y1="38" x2="68" y2="62" stroke="#FF6B35" stroke-width="3" stroke-linecap="round" />
+                        <line x1="32" y1="62" x2="68" y2="62" stroke="#6C2BD9" stroke-width="3" stroke-linecap="round" />
+                        <circle cx="50" cy="38" r="4" fill="white" />
+                        <rect x="44" y="72" width="12" height="6" rx="3" fill="#F7C948" />
+                    </svg>
+                </div>
+                <div class="logo-text">Link Industrial <span>· guia visual</span></div>
+            </div>
+            <div class="header-controls">
+                <button class="dark-toggle" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i> <span id="darkLabel">Modo Escuro</span>
+                </button>
+                <div class="badge">
+                    <i class="fas fa-industry"></i> chão de fábrica 4.0
+                </div>
+            </div>
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="tab1"><i class="fas fa-ethernet"></i> Cabos Industriais</button>
+            <button class="tab-btn" data-tab="tab2"><i class="fas fa-project-diagram"></i> Topologias</button>
+            <button class="tab-btn" data-tab="tab3"><i class="fas fa-newspaper"></i> Reportagens</button>
+            <button class="tab-btn" data-tab="tab4"><i class="fas fa-tools"></i> Ferramentas</button>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ABA 1 – CABOS INDUSTRIAIS                                     -->
+        <!-- ============================================================ -->
+        <div id="tab1" class="tab-content active">
+
+            <div class="card-grid">
+                <!-- PAR TRANÇADO -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-twist"></i>
+                        <h3>Par Trançado</h3>
+                    </div>
+                    <p>Cabos de cobre com pares de fios entrelaçados. Usado em Ethernet e sensores.</p>
+                    <div class="extra-detail">
+                        <i class="fas fa-microchip"></i> <strong>Na fábrica:</strong> CLPs, IHM, câmeras e switches (até 100m).
+                    </div>
+                    <button class="btn-video" style="margin-top:14px; font-size:0.8rem; padding:0.4rem 1.2rem;" onclick="toggleVideo('video1')">
+                        <i class="fas fa-play"></i> Tutorial de crimpagem
+                    </button>
+                </div>
+
+                <!-- FIBRA ÓPTICA -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Fibra Óptica</h3>
+                    </div>
+                    <p>Transmissão por pulsos de luz, imune a interferências eletromagnéticas.</p>
+                    <div class="extra-detail">
+                        <i class="fas fa-microchip"></i> <strong>Na fábrica:</strong> longas distâncias (>100m), interligação de prédios.
+                    </div>
+                    <button class="btn-video" style="margin-top:14px; font-size:0.8rem; padding:0.4rem 1.2rem;" onclick="toggleVideo('video2')">
+                        <i class="fas fa-play"></i> Emenda por fusão
+                    </button>
+                </div>
+
+                <!-- WIRELESS -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-wifi"></i>
+                        <h3>Wireless</h3>
+                    </div>
+                    <p>Comunicação por ondas de rádio, sem cabos físicos. Mobilidade total.</p>
+                    <div class="extra-detail">
+                        <i class="fas fa-microchip"></i> <strong>Na fábrica:</strong> AGVs, sensores remotos, tablets e empilhadeiras.
+                    </div>
+                    <button class="btn-video" style="margin-top:14px; font-size:0.8rem; padding:0.4rem 1.2rem;" onclick="toggleVideo('video3')">
+                        <i class="fas fa-play"></i> Configurar AP industrial
+                    </button>
+                </div>
+            </div>
+
+            <!-- VÍDEOS EMBUTIDOS -->
+            <div id="video1" class="video-container">
+                <iframe src="https://www.youtube.com/embed/6YbJ7kzHnso" allowfullscreen></iframe>
+            </div>
+            <div id="video2" class="video-container">
+                <iframe src="https://www.youtube.com/embed/6YbJ7kzHnso" allowfullscreen></iframe>
+            </div>
+            <div id="video3" class="video-container">
+                <iframe src="https://www.youtube.com/embed/6YbJ7kzHnso" allowfullscreen></iframe>
+            </div>
+
+            <!-- GLOSSÁRIO INTERATIVO -->
+            <div class="glossary-wrapper">
+                <span class="glossary-term">
+                    <strong>EMI</strong>
+                    <span class="glossary-tooltip">Interferência Eletromagnética</span>
+                </span>
+                <span class="glossary-term">
+                    <strong>Latência</strong>
+                    <span class="glossary-tooltip">Tempo de resposta da rede</span>
+                </span>
+                <span class="glossary-term">
+                    <strong>Largura de banda</strong>
+                    <span class="glossary-tooltip">Capacidade de transmissão (Mbps/Gbps)</span>
+                </span>
+            </div>
+
+            <!-- MEDIA BOX -->
+            <div class="media-box">
+                <div class="text">
+                    <i class="fas fa-play-circle"></i>
+                    <span><strong>Na prática:</strong> veja tutoriais completos de instalação</span>
+                </div>
+                <button class="btn-video" onclick="alert('📺 Abrindo playlist com todos os tutoriais!')">
+                    <i class="fas fa-play"></i> Ver todos os vídeos
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ABA 2 – TOPOLOGIAS                                            -->
+        <!-- ============================================================ -->
+        <div id="tab2" class="tab-content">
+
+            <div class="topo-grid">
+                <!-- ESTRELA -->
+                <div class="topo-card">
+                    <span class="badge-topo"><i class="fas fa-star"></i> TOPOLOGIA</span>
+                    <h4><i class="fas fa-star" style="color:#F7C948;"></i> Layout em Estrela</h4>
+                    <p class="desc">Todos os dispositivos se conectam a um switch central. Fluxo de dados gerenciado e isolado.</p>
+                    <div><strong>👍 Vantagens</strong>
+                        <ul class="vantagens">
+                            <li><i class="fas fa-check-circle"></i> Falha em um cabo não derruba a rede</li>
+                            <li><i class="fas fa-check-circle"></i> Fácil de expandir e diagnosticar</li>
+                            <li><i class="fas fa-check-circle"></i> Desempenho estável</li>
+                        </ul>
+                    </div>
+                    <div><strong>👎 Desvantagens</strong>
+                        <ul class="desvantagens">
+                            <li><i class="fas fa-times-circle"></i> Depende do switch central (ponto único de falha)</li>
+                            <li><i class="fas fa-times-circle"></i> Mais cabos e investimento inicial</li>
+                        </ul>
+                    </div>
+                    <button class="btn-video" style="margin-top:14px; font-size:0.8rem; padding:0.4rem 1.2rem;" onclick="toggleVideo('video4')">
+                        <i class="fas fa-play"></i> Ver animação
+                    </button>
+                </div>
+
+                <!-- BARRAMENTO -->
+                <div class="topo-card">
+                    <span class="badge-topo"><i class="fas fa-grip-lines"></i> TOPOLOGIA</span>
+                    <h4><i class="fas fa-grip-lines" style="color:#a29bfe;"></i> Layout em Barramento</h4>
+                    <p class="desc">Todos os dispositivos compartilham um único cabo (backbone). Dados trafegam em ambos os sentidos.</p>
+                    <div><strong>👍 Vantagens</strong>
+                        <ul class="vantagens">
+                            <li><i class="fas fa-check-circle"></i> Menos cabo, mais econômico</li>
+                            <li><i class="fas fa-check-circle"></i> Fácil de instalar em linhas extensas</li>
+                        </ul>
+                    </div>
+                    <div><strong>👎 Desvantagens</strong>
+                        <ul class="desvantagens">
+                            <li><i class="fas fa-times-circle"></i> Falta de redundância: falha no cabo para toda a rede</li>
+                            <li><i class="fas fa-times-circle"></i> Dificuldade para isolar problemas</li>
+                            <li><i class="fas fa-times-circle"></i> Desempenho cai com muitos dispositivos</li>
+                        </ul>
+                    </div>
+                    <button class="btn-video" style="margin-top:14px; font-size:0.8rem; padding:0.4rem 1.2rem;" onclick="toggleVideo('video5')">
+                        <i class="fas fa-play"></i> Ver animação
+                    </button>
+                </div>
+            </div>
+
+            <!-- VÍDEOS TOPOLOGIA -->
+            <div id="video4" class="video-container">
+                <iframe src="https://www.youtube.com/embed/6YbJ7kzHnso" allowfullscreen></iframe>
+            </div>
+            <div id="video5" class="video-container">
+                <iframe src="https://www.youtube.com/embed/6YbJ7kzHnso" allowfullscreen></iframe>
+            </div>
+
+            <!-- QUIZ INTERATIVO -->
+            <div class="quiz-container">
+                <h3><i class="fas fa-brain"></i> Quiz Rápido</h3>
+                <div class="quiz-question">
+                    <h4>Qual topologia é mais recomendada para chão de fábrica moderno?</h4>
+                    <div class="quiz-options">
+                        <button onclick="checkQuiz(this, true)">🌟 Estrela</button>
+                        <button onclick="checkQuiz(this, false)">📏 Barramento</button>
+                        <button onclick="checkQuiz(this, false)">🔀 Anel</button>
+                    </div>
+                    <div id="quizFeedback" class="quiz-feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ABA 3 – REPORTAGENS                                          -->
+        <!-- ============================================================ -->
+        <div id="tab3" class="tab-content">
+
+            <div class="news-grid">
+                <div class="news-item" onclick="showNews('news1')">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>Entrevista: Gestor de Automação</h4>
+                    <p>“Migramos de barramento para estrela e reduzimos paradas em 40%.”</p>
+                    <span class="tag"><i class="far fa-calendar-alt"></i> 2026</span>
+                </div>
+                <div class="news-item" onclick="showNews('news2')">
+                    <i class="fas fa-newspaper"></i>
+                    <h4>Reportagem: Fábrica Conectada</h4>
+                    <p>Como a fibra óptica transformou a comunicação entre setores.</p>
+                    <span class="tag"><i class="far fa-calendar-alt"></i> 2025</span>
+                </div>
+                <div class="news-item" onclick="showNews('news3')">
+                    <i class="fas fa-podcast"></i>
+                    <h4>Podcast: Redes no Chão de Fábrica</h4>
+                    <p>Especialistas debatem wireless e segurança em IIoT.</p>
+                    <span class="tag"><i class="fas fa-headphones"></i> ouça agora</span>
+                </div>
+                <div class="news-item" onclick="showNews('news4')">
+                    <i class="fas fa-microphone-alt"></i>
+                    <h4>Case: VW & redes 5G</h4>
+                    <p>Implementação de rede privada 5G para AGVs.</p>
+                    <span class="tag"><i class="far fa-file-alt"></i> estudo de caso</span>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO COMPLETO DAS REPORTAGENS -->
+            <div id="news1" class="news-full">
+                <h4>🎙️ Entrevista com Carlos Silva, Gestor de Automação</h4>
+                <p><strong>"Quando migramos nossa planta para topologia em estrela, reduzimos o tempo de parada não planejada em 40%. A facilidade de diagnosticar falhas e a redundância que o switch central nos proporciona foi um divisor de águas."</strong></p>
+                <p>Carlos também destacou a importância de treinar a equipe para lidar com a nova infraestrutura e como a fibra óptica está sendo gradualmente implementada para interligar os novos setores da fábrica.</p>
+                <button class="btn-video" onclick="alert('🎥 Abrindo entrevista completa no YouTube')">
+                    <i class="fas fa-play"></i> Assistir entrevista completa
+                </button>
+            </div>
+
+            <div id="news2" class="news-full">
+                <h4>🏭 Reportagem: Fábrica Conectada - O Futuro é Agora</h4>
+                <p>A indústria 4.0 está transformando o chão de fábrica. A implantação de fibra óptica permitiu que a comunicação entre os setores de produção e logística fosse praticamente instantânea, reduzindo o tempo de resposta a falhas e otimizando a produção.</p>
+                <button class="btn-video" onclick="alert('🎥 Abrindo reportagem completa')">
+                    <i class="fas fa-play"></i> Assistir reportagem
+                </button>
+            </div>
+
+            <div id="news3" class="news-full">
+                <h4>🎧 Podcast: Redes Industriais com Especialistas</h4>
+                <p>Neste episódio, especialistas discutem os desafios e soluções para redes wireless em ambientes fabris, com foco em segurança, latência e integração com sistemas legados. Ouça agora o episódio completo!</p>
+                <button class="btn-video" onclick="alert('🎧 Abrindo podcast no Spotify')">
+                    <i class="fas fa-play"></i> Ouvir podcast
+                </button>
+            </div>
+
+            <div id="news4" class="news-full">
+                <h4>🚗 Case: Volkswagen e Redes 5G</h4>
+                <p>A Volkswagen implementou uma rede privada 5G em sua fábrica para controlar AGVs (robôs móveis autônomos) com latência ultrabaixa. O resultado foi um aumento de 30% na eficiência logística e redução de custos operacionais.</p>
+                <button class="btn-video" onclick="alert('📄 Baixando estudo de caso completo (PDF)')">
+                    <i class="fas fa-download"></i> Baixar estudo de caso
+                </button>
+            </div>
+
+            <div class="media-box">
+                <div class="text">
+                    <i class="fas fa-play-circle"></i>
+                    <span><strong>Reportagem em vídeo:</strong> automação industrial e redes</span>
+                </div>
+                <button class="btn-video" onclick="alert('📺 Reportagem: como a rede em estrela melhorou uma fábrica de alimentos.')">
+                    <i class="fas fa-play"></i> Assistir reportagem
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ABA 4 – FERRAMENTAS                                          -->
+        <!-- ============================================================ -->
+        <div id="tab4" class="tab-content">
+
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0;">
+                <div style="background: #f8f6ff; border-radius: 24px; padding: 1.5rem; flex:1 1 200px; border:2px solid #f0ecf9;">
+                    <i class="fas fa-tools" style="font-size:2rem; color:#6C2BD9;"></i>
+                    <h4 style="margin: 10px 0 6px; color:#1A1A2E;">Ferramentas físicas</h4>
+                    <ul style="list-style:none; padding-left:0;">
+                        <li style="padding:6px 0; border-bottom:1px solid #f0ecf9;"><i class="fas fa-crimp" style="color:#FF6B35;"></i> Crimpador RJ45</li>
+                        <li style="padding:6px 0; border-bottom:1px solid #f0ecf9;"><i class="fas fa-bolt" style="color:#FF6B35;"></i> Testador de cabos</li>
+                        <li style="padding:6px 0;"><i class="fas fa-microscope" style="color:#FF6B35;"></i> Multímetro</li>
+                    </ul>
+                </div>
+                <div style="background: #f8f6ff; border-radius: 24px; padding: 1.5rem; flex:1 1 200px; border:2px solid #f0ecf9;">
+                    <i class="fas fa-download" style="font-size:2rem; color:#6C2BD9;"></i>
+                    <h4 style="margin: 10px 0 6px; color:#1A1A2E;">Downloads úteis</h4>
+                    <ul style="list-style:none; padding-left:0;">
+                        <li style="padding:6px 0; border-bottom:1px solid #f0ecf9;"><i class="fas fa-file-pdf" style="color:#FF6B35;"></i> Checklist de instalação</li>
+                        <li style="padding:6px 0; border-bottom:1px solid #f0ecf9;"><i class="fas fa-file-pdf" style="color:#FF6B35;"></i> Guia de cores T568A/B</li>
+                        <li style="padding:6px 0;"><i class="fas fa-project-diagram" style="color:#FF6B35;"></i> Modelo de projeto (.drawio)</li>
+                    </ul>
+                </div>
+                <div style="background: #f8f6ff; border-radius: 24px; padding: 1.5rem; flex:1 1 200px; border:2px solid #f0ecf9;">
+                    <i class="fas fa-calculator" style="font-size:2rem; color:#6C2BD9;"></i>
+                    <h4 style="margin: 10px 0 6px; color:#1A1A2E;">Calculadora de distâncias</h4>
+                    <p style="font-size:0.9rem; color:#4a4a6a;">Até 100m → Par Trançado · >100m → Fibra Óptica</p>
+                    <div style="background:#f0ecf9; border-radius: 30px; padding:0.2rem 1rem; display:inline-block; font-weight:600; color:#6C2BD9;">ex: 75m → par trançado</div>
+                </div>
+            </div>
+
+            <div class="tools-section">
+                <div class="tool-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Checklist de instalação</span>
+                    <a href="#" class="download" onclick="alert('📄 Baixando checklist em PDF...')">Baixar</a>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Guia de cores T568A/B</span>
+                    <a href="#" class="download" onclick="alert('📄 Baixando guia de cores...')">Baixar</a>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Modelo de projeto</span>
+                    <a href="#" class="download" onclick="alert('📄 Baixando modelo .drawio...')">Baixar</a>
+                </div>
+            </div>
+
+            <div class="media-box">
+                <div class="text">
+                    <i class="fas fa-play-circle"></i>
+                    <span><strong>Como usar:</strong> crimpador, testador e multímetro</span>
+                </div>
+                <button class="btn-video" onclick="alert('🔧 Vídeo tutorial: ferramentas essenciais para redes industriais.')">
+                    <i class="fas fa-play"></i> Ver tutorial
+                </button>
+            </div>
+        </div>
+
+        <!-- ===== RODAPÉ ===== -->
+        <hr>
+        <div class="footer-note">
+            <span><i class="fas fa-copyright"></i> Link Industrial · guia visual para automação</span>
+            <span><i class="fas fa-rocket"></i> Indústria 4.0 · Redes · Automação</span>
+        </div>
+
+    </div>
+
+      <script>
+        // ===== FUNÇÃO PARA ALTERNAR MODO ESCURO =====
+        function toggleDarkMode() {
+            const body = document.body;
+            const label = document.getElementById('darkLabel');
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                label.textContent = 'Modo Claro';
+                document.querySelector('.dark-toggle i').className = 'fas fa-sun';
+            } else {
+                label.textContent = 'Modo Escuro';
+                document.querySelector('.dark-toggle i').className = 'fas fa-moon';
+            }
+        }
+
+        // ===== FUNÇÃO PARA TABS =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = {
+                tab1: document.getElementById('tab1'),
+                tab2: document.getElementById('tab2'),
+                tab3: document.getElementById('tab3'),
+                tab4: document.getElementById('tab4')
+            };
+
+            tabs.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+
+                    // Remove active de todos
+                    tabs.forEach(b => b.classList.remove('active'));
+                    Object.values(contents).forEach(c => c.classList.remove('active'));
+
+                    // Ativa o clicado
+                    this.classList.add('active');
+                    if (contents[tabId]) {
+                        contents[tabId].classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // ===== FUNÇÃO PARA VÍDEOS =====
+        function toggleVideo(videoId) {
+            const video = document.getElementById(videoId);
+            if (video) {
+                video.classList.toggle('show');
+
+                // Fecha outros vídeos abertos
+                const allVideos = document.querySelectorAll('.video-container');
+                allVideos.forEach(v => {
+                    if (v.id !== videoId) {
+                        v.classList.remove('show');
+                    }
+                });
+            }
+        }
+
+        // ===== FUNÇÃO PARA REPORTAGENS =====
+        function showNews(newsId) {
+            const allNews = document.querySelectorAll('.news-full');
+            allNews.forEach(n => n.classList.remove('show'));
+
+            const selected = document.getElementById(newsId);
+            if (selected) {
+                selected.classList.toggle('show');
+
+                // Scroll suave até o conteúdo
+                if (selected.classList.contains('show')) {
+                    setTimeout(() => {
+                        selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 200);
+                }
+            }
+        }
+
+        // ===== FUNÇÃO PARA QUIZ =====
+        function checkQuiz(button, isCorrect) {
+            const feedback = document.getElementById('quizFeedback');
+            const allButtons = button.parentElement.querySelectorAll('button');
+
+            // Desabilita todos os botões
+            allButtons.forEach(b => b.disabled = true);
+
+            // Marca o correto e o errado
+            allButtons.forEach(b => {
+                if (b.textContent.includes('Estrela')) {
+                    b.classList.add('correct');
+                }
+            });
+
+            if (isCorrect) {
+                button.classList.add('correct');
+                feedback.className = 'quiz-feedback show success';
+                feedback.textContent = '✅ Correto! A topologia em estrela é a mais recomendada para fábricas modernas por sua facilidade de diagnóstico e redundância.';
+            } else {
+                button.classList.add('wrong');
+                feedback.className = 'quiz-feedback show error';
+                feedback.textContent = '❌ Não foi dessa vez! A topologia em estrela é a mais recomendada para fábricas modernas. Tente novamente!';
+            }
+        }
+
+        // ===== FUNÇÃO PARA BAIXAR ARQUIVOS =====
+        function downloadFile(filename) {
+            alert('📄 Baixando arquivo: ' + filename);
+        }
+
+        // ===== FUNÇÃO PARA ABRIR VÍDEOS =====
+        function openVideo(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
